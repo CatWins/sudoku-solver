@@ -26,7 +26,10 @@
     <![endif]-->
 
     <header class="header">
-      <h1 class="header_title">Sudoku Solver</h1>
+      <div class="header_title">
+        <div class="header_underline">Sudoku</div>
+        <div class="header_overline">Solver</div>
+      </div>
     </header>
 
     <div class="number-selector">
@@ -159,8 +162,13 @@
       </table>
     </div>
     <div class="module_wrapper">
-      <button class="button button-clear">Clear</button>
-      <button class="button button-solve">Solve</button>
+      <table class="buttons">
+        <tr>
+          <td class="buttons_cell"><div class="button button-generate">New</div></td>
+          <td class="buttons_cell"><div class="button button-clear">Clear</div></td>
+          <td class="buttons_cell"><div class="button button-solve">Solve</div></td>
+        </tr>
+      </table>
     </div>
 
     <!-- build:js scripts/vendor.js -->

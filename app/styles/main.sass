@@ -7,10 +7,14 @@ $cell-height: 1em
 $border-width: .05em
 
 $color-border: #272b33
-$color-font: #d39b63
-$color-background: #272b33
-$color-cell: lighten($color-background, 5%)
+$color-font: rgb(157, 165, 180)
+$button_font-color: rgba(157, 165, 180, .6)
+$color-outline: rgb(24, 26, 31)
+$color-background: rgb(40, 44, 52)
+$color-cell: rgb(49, 54, 63)
 $color-white: #abb2c1
+
+$header_outline: .04em
 
 $font-size: 4em
 $font-size-huge: 8em
@@ -21,20 +25,33 @@ $break-md: 800px
 $break-lg: 1200px
 
 $break-xs_font-size: 8px
-$break-sm_font-size: 12px
-$break-md_font-size: 14px
+$break-sm_font-size: 10px
+$break-md_font-size: 16px
 $break-lg_font-size: 16px
 
 body
   background: $color-background
   font-family: 'Roboto', sans-serif
+  font-weight: 900
 
 .header
-  background: $color-cell
   color: $color-font
+  font-size: $font-size
+  font-style: italic
+  text-shadow: (-$header_outline) (-$header_outline) 0 $color-outline, $header_outline (-$header_outline) 0 $color-outline, (-$header_outline) $header_outline 0 $color-outline, $header_outline $header_outline 0 $color-outline
+  width: 70%
+  margin: 0 auto
+  height: 1.5em
+
+.header_underline
+  position: relative
+  left: .3em
+
+.header_overline
+  position: relative
+  bottom: .6em
 
 .sudoku
-  border: .1em solid $color-border
   background: $color-border
   margin-left: auto
   margin-right: auto
@@ -58,16 +75,28 @@ body
   .sudoku_cell
     border-bottom: $border-width*2.6 solid $color-border
 
+.buttons
+  margin: 0 auto
+  width: 70%
+  table-layout: fixed
+  border-collapse: collapse
+
+.buttons_cell
+  text-align: center
+  padding: 0 .5em
+
 .button
-  margin-left: auto
-  margin-right: auto
-  display: block
+  color: $button_font-color
+  width: 100%
   background: $color-cell
-  border: .1em solid $color_border
+  border: $border-width solid $color-outline
   font-size: $font-size
+  cursor: pointer
+  text-transform: uppercase
+  font-weight: 500
 
 .module-wrapper
-  margin-bottom: 2em
+  margin: 1em auto
 
 .number-selector
   position: fixed
@@ -85,11 +114,7 @@ body
   opacity: 1
 
 .number-selector_content
-  margin: 5em auto
-  padding: 1em
-  // background: #55f
-  width: 70%
-  position: relative
+  margin: 12em auto
 
 .number-selector_cell
   font-size: $font-size-huge
@@ -99,8 +124,12 @@ body
   background: $color-cell
   color: $color-white
 
+.number-selector_close
+  font-size: $font-size*1.4
+
 .number-selector_table
   margin: 0 auto
+  table-layout: fixed
 
 @media screen and (min-width: $break-xs)
   body
@@ -117,3 +146,9 @@ body
 @media screen and (min-width: $break-lg)
   body
     font-size: $break-lg_font-size
+
+@media screen and (orientation: portrait)
+  .buttons
+    width: 100%
+  .header
+    width: 100%

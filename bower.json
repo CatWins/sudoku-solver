@@ -1,7 +1,9 @@
 {
   "name": "sudoku-solver",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "roboto-fontface": "^0.7.0"
+  },
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.2.0"

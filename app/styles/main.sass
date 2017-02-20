@@ -27,6 +27,7 @@ $break-lg_font-size: 16px
 
 body
   background: $color-background
+  font-family: 'Roboto', sans-serif
 
 .header
   background: $color-cell
@@ -46,15 +47,16 @@ body
   text-align: center
   font-size: $font-size
   color: $color-font
+  line-height: 0
 
-// .sudoku_cell:nth-child(3n)
-//   border-right: .1em solid $color-white
-// .sudoku_cell:last-child
-//   border-right: none
-//
-// .sudoku_row__border-bottom
-//   .sudoku_cell
-//     border-bottom: .1em solid $color-white
+.sudoku_cell:nth-child(3n)
+  border-right: $border-width*2.6 solid $color-border
+.sudoku_cell:last-child
+  border-right: none
+
+.sudoku_row__border-bottom
+  .sudoku_cell
+    border-bottom: $border-width*2.6 solid $color-border
 
 .button
   margin-left: auto

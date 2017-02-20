@@ -15,6 +15,16 @@ $color-white: #abb2c1
 $font-size: 4em
 $font-size-huge: 8em
 
+$break-xs: 320px
+$break-sm: 480px
+$break-md: 800px
+$break-lg: 1200px
+
+$break-xs_font-size: 8px
+$break-sm_font-size: 12px
+$break-md_font-size: 14px
+$break-lg_font-size: 16px
+
 body
   background: $color-background
 
@@ -89,3 +99,19 @@ body
 
 .number-selector_table
   margin: 0 auto
+
+@media screen and (min-width: $break-xs)
+  body
+    font-size: $break-xs_font-size
+
+@media screen and (min-width: $break-sm)
+  body
+    font-size: $break-sm_font-size
+
+@media screen and (min-width: $break-md)
+  body
+    font-size: $break-md_font-size
+
+@media screen and (min-width: $break-lg)
+  body
+    font-size: $break-lg_font-size

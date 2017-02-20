@@ -2,12 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
   let sudoku_table = document.querySelector('.sudoku')
   let number_selector = document.querySelector('.number-selector')
   let number_selector_table = document.querySelector('.number-selector_table')
+  let button_solve = document.querySelector('.button-solve')
+  let button_clear = document.querySelector('.button-clear')
 
   let selected_cell = null
-
-  let cell = sudoku_table.rows[3].cells[3]
-  table_clear(sudoku_table)
-  number_set(cell, 7)
 
   sudoku_table.addEventListener("click", e => {
     if (e.target.classList.contains('sudoku_cell')) {
@@ -32,7 +30,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
+  button_solve.addEventListener("click", e => {
+    let puzzle = table_parse(sudoku_table)
+    let solution = sudoku(puzzle)
+    table_fill(sudoku_table, solution)
+  })
+
+  button_clear.addEventListener("click", e => {
+    table_clear(sudoku_table)
+  })
+
 })
+
+function table_parse(table) {
+  let puzzle = []
+  for (let y = 0; y < table.rows.length; y++) {
+    if (!puzzle[y]) puzzle[y] = []
+    for (let x = 0; x < table.rows[y].cells.length; x++) {
+      puzzle[y][x] = table.rows[y].cells[x].innerHTML
+      if (!puzzle[y][x]) puzzle[y][x] = 0
+    }
+  }
+  return puzzle
+}
+
+function table_fill(table, puzzle) {
+  for (let y = 0; y < table.rows.length; y++) {
+    for (let x = 0; x < table.rows[y].cells.length; x++) {
+      if (!puzzle[y][x]) {
+        table.rows[y].cells[x].innerHTML = ''
+      } else {
+        table.rows[y].cells[x].innerHTML = puzzle[y][x]
+      }
+    }
+  }
+}
 
 function number_set(cell, n) {
   cell.innerHTML = n

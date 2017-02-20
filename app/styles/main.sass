@@ -13,6 +13,7 @@ $color-outline: rgb(24, 26, 31)
 $color-background: rgb(40, 44, 52)
 $color-cell: rgb(49, 54, 63)
 $color-white: #abb2c1
+$color-red: rgb(224, 82, 82)
 
 $header_outline: .04em
 
@@ -98,7 +99,7 @@ body
 .module-wrapper
   margin: 1em auto
 
-.number-selector
+.popup
   position: fixed
   top: 0
   bottom: 0
@@ -109,7 +110,7 @@ body
   visibility: hidden
   opacity: 0
 
-.number-selector__visible
+.popup__visible
   visibility: visible
   opacity: 1
 
@@ -131,6 +132,31 @@ body
   margin: 0 auto
   table-layout: fixed
 
+.error_content
+  margin: 10em auto
+  float: left
+  width: 80%
+  position: relative
+  left: 5%
+  padding: 5%
+  background: $color-cell
+  font-size: $font-size/2
+
+.error_info
+  float: left
+  width: 80%
+  color: $color-font
+
+.error_close
+  font-size: $font-size/2
+  float: right
+  width: 1em
+  height: 1em
+  color: $color-red
+  cursor: pointer
+
+
+
 @media screen and (min-width: $break-xs)
   body
     font-size: $break-xs_font-size
@@ -142,10 +168,14 @@ body
 @media screen and (min-width: $break-md)
   body
     font-size: $break-md_font-size
+  .error_content
+    font-size: $font-size/3
 
 @media screen and (min-width: $break-lg)
   body
     font-size: $break-lg_font-size
+  .error_content
+    font-size: $font-size/2
 
 @media screen and (orientation: portrait)
   .buttons

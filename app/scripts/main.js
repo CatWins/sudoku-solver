@@ -4,21 +4,29 @@ document.addEventListener("DOMContentLoaded", () => {
   let number_selector_table = document.querySelector('.number-selector_table')
   let button_solve = document.querySelector('.button-solve')
   let button_clear = document.querySelector('.button-clear')
+  let error = document.querySelector('.error')
+  let error_message = document.querySelector('.error_message')
+  let error_close = document.querySelector('.error_close')
 
   let selected_cell = null
 
+  function error_show(message) {
+    error_message.innerHTML = message
+    error.classList.toggle('popup__visible')
+  }
+
   sudoku_table.addEventListener("click", e => {
     if (e.target.classList.contains('sudoku_cell')) {
-      if (!number_selector.classList.contains('number-selector__visible')) {
+      if (!number_selector.classList.contains('popup__visible')) {
         selected_cell = e.target
-        number_selector.classList.toggle('number-selector__visible')
+        number_selector.classList.toggle('popup__visible')
       }
     }
   })
 
   number_selector.addEventListener("click", e => {
-    if (number_selector.classList.contains('number-selector__visible')) {
-      number_selector.classList.toggle('number-selector__visible')
+    if (number_selector.classList.contains('popup__visible')) {
+      number_selector.classList.toggle('popup__visible')
     }
   })
 
@@ -32,12 +40,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   button_solve.addEventListener("click", e => {
     let puzzle = table_parse(sudoku_table)
-    let solution = sudoku(puzzle)
-    table_fill(sudoku_table, solution)
+    if (puzzle_is_valid(puzzle)) {
+      let solution = sudoku(puzzle)
+      table_fill(sudoku_table, solution)
+    } else {
+      error_show('Invalid puzzle')
+    }
   })
 
   button_clear.addEventListener("click", e => {
     table_clear(sudoku_table)
+  })
+
+  error_close.addEventListener("click", e => {
+    if (error.classList.contains('popup__visible')) {
+      error.classList.toggle('popup__visible')
+    }
   })
 
 })
@@ -80,6 +98,29 @@ function table_clear(table) {
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
+}
+
+//  CHECKS IF PUZZLE IS VALID
+function puzzle_is_valid(arg_puzzle) {
+  let puzzle = arg_puzzle.map(row => row.slice())
+
+  for (let y in puzzle) {
+    for (let x in puzzle) {
+      if (puzzle[y][x]) {
+        let tmp = puzzle[y][x]
+        puzzle[y][x] = 0
+        let restricted = puzzle[y]
+          .concat(getColumn(x, puzzle))
+          .concat(getSquare(x, y, puzzle))
+          .sort((a,b) => a-b)
+          .filter((curr, i, arr) => (!curr || curr == arr[i + 1]) ? false : true)
+        puzzle[y][x] = tmp
+        if (restricted && restricted.includes(puzzle[y][x])) return false
+      }
+    }
+  }
+  let map = makeMap(puzzle)
+  return Boolean(map)
 }
 
 //  WRITE EXACT ONE NUMBER IF CAN

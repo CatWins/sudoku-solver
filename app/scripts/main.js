@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let puzzle = table_parse(sudoku_table)
     if (puzzle_is_valid(puzzle)) {
       let solution = sudoku(puzzle)
+      if (!solution) error_show('Invalid puzzle')
       table_fill(sudoku_table, solution)
     } else {
       error_show('Invalid puzzle')

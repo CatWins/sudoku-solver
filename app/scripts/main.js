@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let number_selector_table = document.querySelector('.number-selector_table')
   let button_solve = document.querySelector('.button-solve')
   let button_clear = document.querySelector('.button-clear')
+  let button_new = document.querySelector('.button-new')
   let error = document.querySelector('.error')
   let error_message = document.querySelector('.error_message')
   let error_close = document.querySelector('.error_close')
@@ -50,6 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   button_clear.addEventListener("click", e => {
     table_clear(sudoku_table)
+  })
+
+  button_new.addEventListener("click", e => {
+    error_show('This feature is unavalable yet')
   })
 
   error_close.addEventListener("click", e => {

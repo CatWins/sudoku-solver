@@ -1,0 +1,51 @@
+body {
+    background: #272b33;
+    color: #abb2c1;
+}
+
+#mocha .test.fail::before {
+    content: '⬛';
+    font-size: .8em;
+    display: block;
+    float: left;
+    margin-right: .5em;
+    color: #e16971;
+}
+
+#mocha .test.pass::before {
+    content: '⬛';
+    font-size: .8em;
+    display: block;
+    float: left;
+    margin-right: .5em;
+    color: #93c072;
+}
+
+#mocha h2 {
+  font-size: .8em;
+}
+
+#mocha .test.fail {
+  color: #e16971;
+}
+
+#mocha .test pre.error {
+  color: #e16971;
+}
+
+#mocha code .number {
+  color: #88bde7;
+}
+
+#mocha-stats {
+  color: #abb2c1;
+}
+
+#mocha-stats em {
+  color: #93c072;
+}
+
+#mocha-stats .progress {
+  background: #abb2c1;
+  border-radius: 50%;
+}

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sudoku Solver</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+  </head>
+  <body>
+    <!--[if IE]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <header class="header">
+      <h1 class="header_title">Sudoku Solver</h1>
+    </header>
+
+    <div class="number-selector">
+      <div class="number-selector_content">
+        <table class="number-selector_table">
+          <tr>
+            <td class="number-selector_cell">7</td>
+            <td class="number-selector_cell">8</td>
+            <td class="number-selector_cell">9</td>
+          </tr>
+          <tr>
+            <td class="number-selector_cell">4</td>
+            <td class="number-selector_cell">5</td>
+            <td class="number-selector_cell">6</td>
+          </tr>
+          <tr>
+            <td class="number-selector_cell">1</td>
+            <td class="number-selector_cell">2</td>
+            <td class="number-selector_cell">3</td>
+          </tr>
+          <tr>
+            <td class="number-selector_cell number-selector_close" colspan="3">Close</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="module-wrapper">
+      <table class="sudoku">
+        <tr>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+        </tr>
+        <tr>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+        </tr>
+        <tr class="sudoku_row__border-bottom">
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+        </tr>
+        <tr>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+        </tr>
+        <tr>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+        </tr>
+        <tr class="sudoku_row__border-bottom">
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+        </tr>
+        <tr>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+        </tr>
+        <tr>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+        </tr>
+        <tr>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+          <td class="sudoku_cell">0</td>
+        </tr>
+      </table>
+    </div>
+    <div class="module_wrapper">
+      <button class="button">Solve</button>
+    </div>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

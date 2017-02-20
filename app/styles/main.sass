@@ -1,0 +1,91 @@
+// bower:sass
+// endbower
+
+$cell-width: 1em
+$cell-height: 1em
+
+$border-width: .05em
+
+$color-border: #272b33
+$color-font: #d39b63
+$color-background: #272b33
+$color-cell: lighten($color-background, 5%)
+$color-white: #abb2c1
+
+$font-size: 4em
+$font-size-huge: 8em
+
+body
+  background: $color-background
+
+.header
+  background: $color-cell
+  color: $color-font
+
+.sudoku
+  border: .1em solid $color-border
+  background: $color-border
+  margin-left: auto
+  margin-right: auto
+
+.sudoku_cell
+  border: $border-width solid $color-border
+  background: $color-cell
+  width: $cell-width
+  height: $cell-height
+  text-align: center
+  font-size: $font-size
+  color: $color-font
+
+// .sudoku_cell:nth-child(3n)
+//   border-right: .1em solid $color-white
+// .sudoku_cell:last-child
+//   border-right: none
+//
+// .sudoku_row__border-bottom
+//   .sudoku_cell
+//     border-bottom: .1em solid $color-white
+
+.button
+  margin-left: auto
+  margin-right: auto
+  display: block
+  background: $color-cell
+  border: .1em solid $color_border
+  font-size: $font-size
+
+.module-wrapper
+  margin-bottom: 2em
+
+.number-selector
+  position: fixed
+  top: 0
+  bottom: 0
+  right: 0
+  left: 0
+  background: rgba(0, 0, 0, 0.7)
+  transition: opacity 300ms
+  visibility: hidden
+  opacity: 0
+
+.number-selector__visible
+  visibility: visible
+  opacity: 1
+
+.number-selector_content
+  margin: 5em auto
+  padding: 1em
+  // background: #55f
+  width: 70%
+  position: relative
+
+.number-selector_cell
+  font-size: $font-size-huge
+  width: $cell-width
+  height: $cell-height
+  text-align: center
+  background: $color-cell
+  color: $color-white
+
+.number-selector_table
+  margin: 0 auto

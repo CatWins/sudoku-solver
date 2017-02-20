@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   let sudoku_table = document.querySelector('.sudoku')
   let number_selector = document.querySelector('.number-selector')
   let number_selector_table = document.querySelector('.number-selector_table')
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     error.classList.toggle('popup__visible')
   }
 
-  sudoku_table.addEventListener("click", e => {
+  sudoku_table.addEventListener('click', e => {
     if (e.target.classList.contains('sudoku_cell')) {
       if (!number_selector.classList.contains('popup__visible')) {
         selected_cell = e.target
@@ -25,13 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  number_selector.addEventListener("click", e => {
+  number_selector.addEventListener('click', e => {
     if (number_selector.classList.contains('popup__visible')) {
       number_selector.classList.toggle('popup__visible')
     }
   })
 
-  number_selector_table.addEventListener("click", e => {
+  number_selector_table.addEventListener('click', e => {
     if (e.target.classList.contains('number-selector_cell')) {
       if (!e.target.classList.contains('number-selector_close')) {
         selected_cell.innerHTML = e.target.innerHTML
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  button_solve.addEventListener("click", e => {
+  button_solve.addEventListener('click', e => {
     let puzzle = table_parse(sudoku_table)
     if (puzzle_is_valid(puzzle)) {
       let solution = sudoku(puzzle)
@@ -50,15 +50,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  button_clear.addEventListener("click", e => {
+  button_clear.addEventListener('click', e => {
     table_clear(sudoku_table)
   })
 
-  button_new.addEventListener("click", e => {
+  button_new.addEventListener('click', e => {
     error_show('This feature is unavalable yet')
   })
 
-  error_close.addEventListener("click", e => {
+  error_close.addEventListener('click', e => {
     if (error.classList.contains('popup__visible')) {
       error.classList.toggle('popup__visible')
     }
@@ -144,7 +144,7 @@ function solve_cell(arg_puzzle) {
       if (map[y][x].length == 1) {
         puzzle[y][x] = map[y][x][0]
         // console.log('Writing ' + map[y][x][0] + ' at ' + parseInt(parseInt(x) + 1) + ' | ' + parseInt(parseInt(y) + 1))
-        if (puzzle[y][x] > 9 || puzzle[y][x] < 1) console.error("WRONG NUMBER! " + puzzle[y][x])
+        if (puzzle[y][x] > 9 || puzzle[y][x] < 1) console.error('WRONG NUMBER! ' + puzzle[y][x])
         return {'success': true, 'puzzle': puzzle}
       }
     }

@@ -16,6 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     error.classList.toggle('popup__visible')
   }
 
+  // window.onerror = function (msg, url, lineNo) {
+  //   error_show(msg + "\n On line " + lineNo)
+  //   return true
+  // }
+
   sudoku_table.addEventListener('click', e => {
     if (e.target.classList.contains('sudoku_cell')) {
       if (!number_selector.classList.contains('popup__visible')) {
@@ -121,7 +126,7 @@ function puzzle_is_valid(arg_puzzle) {
           .sort((a,b) => a-b)
           .filter((curr, i, arr) => (!curr || curr == arr[i + 1]) ? false : true)
         puzzle[y][x] = tmp
-        if (restricted && restricted.includes(puzzle[y][x])) return false
+        if (restricted && (restricted.indexOf(puzzle[y][x]) + 1)) return false
       }
     }
   }
